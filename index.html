@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Facultades</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Dashboard Académico</p>
+        <h1>Gestión de Facultades</h1>
+        <p class="subtitle">Registra nuevas facultades y visualiza la lista actualizada directamente desde el backend.</p>
+      </div>
+      <div class="status-pill" id="statusBadge">Cargando datos...</div>
+    </header>
+
+    <main class="content-grid">
+      <section class="panel panel-form">
+        <h2>Registrar nueva facultad</h2>
+        <form id="facultyForm" novalidate>
+          <div class="field-group">
+            <label for="nombre">Nombre de la facultad</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Facultad de Ingeniería" required />
+            <span class="field-error" id="nombreError"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="decano">Decano / Responsable</label>
+            <input type="text" id="decano" name="decano" placeholder="Ej. Ing. María Pérez" required />
+            <span class="field-error" id="decanoError"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="ubicacion">Ubicación física</label>
+            <input type="text" id="ubicacion" name="ubicacion" placeholder="Ej. Edificio A, Piso 2" required />
+            <span class="field-error" id="ubicacionError"></span>
+          </div>
+
+          <div class="actions">
+            <button type="submit" id="submitButton">Registrar facultad</button>
+          </div>
+        </form>
+        <div class="alert" id="alertBox" hidden></div>
+      </section>
+
+      <section class="panel panel-table">
+        <div class="table-header">
+          <div>
+            <h2>Facultades registradas</h2>
+            <p>Los datos se cargan desde <code>/api/facultades</code> y se actualizan en tiempo real.</p>
+          </div>
+          <button class="refresh-button" id="refreshButton">Actualizar</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table aria-label="Lista de facultades">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Decano</th>
+                <th>Ubicación</th>
+              </tr>
+            </thead>
+            <tbody id="facultyTableBody">
+              <tr>
+                <td colspan="4" class="empty-state">No hay facultades registradas aún.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
