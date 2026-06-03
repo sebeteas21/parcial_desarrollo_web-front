@@ -44,6 +44,38 @@
           </div>
         </form>
         <div class="alert" id="alertBox" hidden></div>
+
+        <hr class="section-divider" />
+
+        <div class="program-section">
+          <h2>Registrar programa académico</h2>
+          <form id="programForm" novalidate>
+            <div class="field-group">
+              <label for="programNombre">Nombre del programa</label>
+              <input type="text" id="programNombre" name="programNombre" placeholder="Ej. Ingeniería de Sistemas" required />
+              <span class="field-error" id="programNombreError"></span>
+            </div>
+
+            <div class="field-group">
+              <label for="programFaculty">Facultad</label>
+              <select id="programFaculty" name="programFaculty" required>
+                <option value="">Seleccione facultad</option>
+              </select>
+              <span class="field-error" id="programFacultadError"></span>
+            </div>
+
+            <div class="field-group">
+              <label for="programDuracion">Duración</label>
+              <input type="text" id="programDuracion" name="programDuracion" placeholder="Ej. 5 años" required />
+              <span class="field-error" id="programDuracionError"></span>
+            </div>
+
+            <div class="actions">
+              <button type="submit" id="submitProgramButton">Registrar programa</button>
+            </div>
+          </form>
+          <div class="alert" id="programAlertBox" hidden></div>
+        </div>
       </section>
 
       <section class="panel panel-table">
@@ -68,6 +100,34 @@
             <tbody id="facultyTableBody">
               <tr>
                 <td colspan="4" class="empty-state">No hay facultades registradas aún.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel panel-table">
+        <div class="table-header">
+          <div>
+            <h2>Programas académicos</h2>
+            <p>Relaciona cada programa con su facultad para verificar la relación uno a muchos.</p>
+          </div>
+          <button class="refresh-button" id="refreshProgramsButton">Actualizar programas</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table aria-label="Lista de programas académicos">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Programa</th>
+                <th>Facultad</th>
+                <th>Duración</th>
+              </tr>
+            </thead>
+            <tbody id="programTableBody">
+              <tr>
+                <td colspan="4" class="empty-state">No hay programas académicos registrados aún.</td>
               </tr>
             </tbody>
           </table>

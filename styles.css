@@ -123,6 +123,18 @@ h1 {
   justify-content: flex-end;
 }
 
+.section-divider {
+  border: none;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 36px 0 24px;
+}
+
+.program-section,
+.table-section {
+  margin-top: 28px;
+}
+
 button,
 .refresh-button {
   border: none;
